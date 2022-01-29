@@ -8,6 +8,8 @@ provider:
   lambdaHashingVersion: 20201221
   region: ap-south-1
   memorySize: 512
+  environment:
+    test: test-env-value
 
 functions:
   hello:
