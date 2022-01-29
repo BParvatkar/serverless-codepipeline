@@ -2,20 +2,14 @@ service: first-project
 
 frameworkVersion: "2 || 3"
 
-# To resolve the env reading from external sources
-variablesResolutionMode: 20210326
-
 provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
   region: ap-south-1
   memorySize: 512
-  # The AWS profile to use to deploy (need to explicitly define to read external variables)
-  # profile: aws-personal
   environment:
     test: test-env-value
-    secret_key: ${ssm:/test/key}
 
 functions:
   hello:
