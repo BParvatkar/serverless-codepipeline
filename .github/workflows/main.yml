@@ -26,8 +26,6 @@ jobs:
         with:
           node-version: 12
       - run: npm install
-      - name: Install Serverless action
-        uses: serverless/github-action@v1.53.0
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
