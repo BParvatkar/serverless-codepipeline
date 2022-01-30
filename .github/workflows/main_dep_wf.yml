@@ -30,7 +30,7 @@ jobs:
   deploy_dev:
     name: Dev deployment
     needs: build
-    if: github.ref == 'refs/heads/stage'
+    if: github.ref == 'refs/heads/stage1'
     environment: STAGE
     runs-on: ubuntu-18.04
     steps:
@@ -42,7 +42,7 @@ jobs:
   deploy_prod:
     name: Prod deployment
     needs: build
-    if: github.ref == 'refs/heads/prod'
+    if: github.ref == 'refs/heads/prod1'
     environment: PRODUCTION
     runs-on: ubuntu-18.04
     steps:
