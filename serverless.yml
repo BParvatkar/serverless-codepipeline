@@ -2,6 +2,8 @@ service: first-project
 
 frameworkVersion: "2 || 3"
 
+variablesResolutionMode: 20210326
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -10,6 +12,8 @@ provider:
   memorySize: 512
   environment:
     test: test-env-value
+    test_ssm_string: ${ssm:/test/string}
+    test_ssm_secure_string: ${ssm:/test/secure_string}
 
 functions:
   hello:
