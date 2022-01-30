@@ -1,9 +1,6 @@
 service: first-project
 
-frameworkVersion: "2"
-
-# To resolve the env reading from external sources
-variablesResolutionMode: 20210326
+frameworkVersion: "3"
 
 provider:
   name: aws
