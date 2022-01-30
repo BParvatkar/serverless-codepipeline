@@ -46,6 +46,8 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::666025726922:role/github-action-assume-role
           aws-region: ap-south-1
+      - name: Read ssm param
+        run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
 
   deploy_prod:
     name: Prod deployment
