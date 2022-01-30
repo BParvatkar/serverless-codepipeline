@@ -25,7 +25,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Initial build setup
-        run: echo Hello from build-setup
+        run: npm install -g serverless
 
   deploy_dev:
     name: Dev deployment
@@ -48,6 +48,8 @@ jobs:
           aws-region: ap-south-1
       - name: Read ssm param
         run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
+      - name: Print serverless version
+        run: serverless -v
 
   deploy_prod:
     name: Prod deployment
