@@ -30,7 +30,7 @@ jobs:
   deploy_dev:
     name: Dev deployment
     needs: build
-    if: GITHUB_REF == 'refs/heads/stage'
+    if: github.ref == 'refs/heads/stage'
     environment: STAGE
     runs-on: ubuntu-18.04
     steps:
