@@ -49,6 +49,19 @@ jobs:
       - name: Read ssm param
         run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
 
+  test_read:
+    needs: deploy_dev
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Test reading ssm param here
+        run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
+
+  test_read_independent:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Test reading ssm param here
+        run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
+
   deploy_prod:
     name: Prod deployment
     needs: build
