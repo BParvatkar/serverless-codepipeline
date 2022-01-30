@@ -33,11 +33,19 @@ jobs:
     if: github.ref == 'refs/heads/stage1'
     environment: STAGE
     runs-on: ubuntu-18.04
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Print dev secrets
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         run: echo Running from branch $GITHUB_REF
+      - name: Configure AWS credentials from OIDC account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::666025726922:role/github-action-assume-role
+          aws-region: ap-south-1
 
   deploy_prod:
     name: Prod deployment
