@@ -1,6 +1,6 @@
 service: first-project
 
-frameworkVersion: "2 || 3"
+frameworkVersion: "2"
 
 # To resolve the env reading from external sources
 variablesResolutionMode: 20210326
@@ -12,10 +12,10 @@ provider:
   region: ap-south-1
   memorySize: 512
   # The AWS profile to use to deploy (need to explicitly define to read external variables)
-  profile: aws-personal
+  # profile: aws-personal
   environment:
     test: test-env-value
-    secret_key: ${ssm:/test/key}
+    secret_key: ${ssm:/test/string}
 
 functions:
   hello:

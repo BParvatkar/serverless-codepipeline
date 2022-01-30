@@ -48,12 +48,14 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::666025726922:role/github-action-assume-role
           aws-region: ap-south-1
-      - name: Read ssm param
-        run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
-      - name: Initial build setup
-        run: npm install -g serverless
+      # - name: Read ssm param
+      #   run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
+      - name: Install serverless
+        run: npm install -g serverless@3.0.1
       - name: Print serverless version
         run: serverless -v
+      - name: Deploy serverless
+        run: serverless deploy
 
   deploy_prod:
     name: Prod deployment
