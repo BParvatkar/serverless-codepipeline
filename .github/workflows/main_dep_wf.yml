@@ -51,7 +51,7 @@ jobs:
       # - name: Read ssm param
       #   run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
       - name: Install serverless
-        run: npm install -g serverless@3.0.1
+        run: npm install -g serverless@2.72.2
       - name: Print serverless version
         run: serverless -v
       - name: Deploy serverless
