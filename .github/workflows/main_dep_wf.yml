@@ -31,7 +31,6 @@ jobs:
     name: Dev deployment
     # needs: build
     if: github.ref == 'refs/heads/stage1'
-    environment: STAGE
     runs-on: ubuntu-18.04
     permissions:
       id-token: write
