@@ -51,14 +51,22 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::666025726922:role/github-assume-role
           aws-region: ap-south-1
+      - name: Print ACTIONS_ID_TOKEN_REQUEST_URL
+        run: echo ACTIONS_ID_TOKEN_REQUEST_URL "$ACTIONS_ID_TOKEN_REQUEST_URL"
+      - name: Print ACTIONS_ID_TOKEN_REQUEST_TOKEN
+        run: echo ACTIONS_ID_TOKEN_REQUEST_TOKEN "$ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+      - name: Print getIDToken
+        env:
+          GET_ID_TOKEN: ${{ getIDToken() }}
+        run: echo GET_ID_TOKEN "$GET_ID_TOKEN"
       # - name: Read ssm param
       #   run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
-      - name: Install serverless
-        run: npm install -g serverless@2.72.2
-      - name: Print serverless version
-        run: serverless -v
-      - name: Deploy serverless
-        run: serverless deploy
+      # - name: Install serverless
+      #   run: npm install -g serverless@2.72.2
+      # - name: Print serverless version
+      #   run: serverless -v
+      # - name: Deploy serverless
+      #   run: serverless deploy
 
   deploy_prod:
     name: Prod deployment
