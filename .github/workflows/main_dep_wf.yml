@@ -54,7 +54,7 @@ jobs:
       - name: Print ACTIONS_ID_TOKEN_REQUEST_URL
         run: echo ACTIONS_ID_TOKEN_REQUEST_URL "$ACTIONS_ID_TOKEN_REQUEST_URL"
       - name: Print ACTIONS_ID_TOKEN_REQUEST_TOKEN
-        run: echo ACTIONS_ID_TOKEN_REQUEST_TOKEN "$ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+        run: echo ACTIONS_ID_TOKEN_REQUEST_TOKEN "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" >> token.txt && cat token.txt
       # - name: Read ssm param
       #   run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
       # - name: Install serverless
