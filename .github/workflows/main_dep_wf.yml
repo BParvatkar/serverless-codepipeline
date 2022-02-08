@@ -49,7 +49,7 @@ jobs:
       - name: Configure AWS credentials from OIDC account
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::666025726922:role/github-action-assume-role
+          role-to-assume: arn:aws:iam::666025726922:role/github-assume-role
           aws-region: ap-south-1
       # - name: Read ssm param
       #   run: echo /test/string=$(aws ssm get-parameter --name "/test/string" --query "Parameter.Value" --output text)
